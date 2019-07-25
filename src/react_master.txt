@@ -47,8 +47,10 @@ library.add(faHome,faPlay,faImages,faVideo);
     >   git status  
     >   git add <files>
     >   .gitignore file for ignoring files in git 
-    >   .git add . : for all files  
-
+    >   git add . : for all files 
+    >   git commit -m "first commit"
+    >   git config --global user.email "prakash.raoinfotech@gmail.com"
+    >   git config --global user.name "prakash karena"
 
 
 
