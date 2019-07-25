@@ -1,0 +1,55 @@
+1. Fonts : https://fontawesome.com/icons?d=gallery
+
+import {FontAwesomeIcon}  from "@fortawesome/react-fontawesome";
+
+/****** Icons *****/
+import {faHome,faPlay,faImages,faVideo}  from "@fortawesome/free-solid-svg-icons";
+
+/****** Library for All types of icons *****/
+import { library } from '@fortawesome/fontawesome-svg-core';
+library.add(faHome,faPlay,faImages,faVideo);
+
+ <FontAwesomeIcon icon={ linkItem.icon } />
+
+2. JSON: JSON Server : https://github.com/typicode/json-server
+    > npm install -g json-server 
+    > json-server --watch db.json --port 3001
+    > now we can access our data in browser 
+    > import axios from 'axios';
+    
+
+
+3. React Bootstrap  : https://react-bootstrap.github.io/getting-started/introduction/
+
+    > import {Carousel} from 'react-bootstrap';
+    > import { Card , Container, Row, Col, Image} from  'react-bootstrap';
+     
+4. Material UI React : https://material-ui.com
+                      npm install @material-ui/core
+                      npm install @material-ui/icons    
+                    > https://www.materialui.co/icons?s=images
+
+
+5. App Bar : https://material-ui.com/components/app-bar
+
+
+6. Post Card : https://material-ui.com/components/cards
+
+7. Shadow : https://material-ui.com/system/shadows
+
+8. Bottom navigation
+
+9. Themes : https://themes.material-ui.com/ 
+
+10. Git : 
+    >   git --version 
+    >   git init 
+    >   git status  
+    >   git add <files>
+    >   .gitignore file for ignoring files in git 
+    >   .git add . : for all files  
+
+
+
+
+
