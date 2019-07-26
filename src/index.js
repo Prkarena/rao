@@ -43,7 +43,7 @@ const loaderTimeOut = () => {
         let loader = document.getElementsByClassName("loader-bg")[0];
         loader.style.display = "none";
     },
-    1000);
+    3000);
 }
 
 loaderTimeOut();

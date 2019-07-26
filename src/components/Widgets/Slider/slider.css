@@ -1,20 +1,11 @@
-.template1_image{
-    position: relative;
-    width: 100%;
-    height: 450px;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
+.slider{
+    margin-top: 64px;
 }
-
 
 /*-------------- Responsive ---------------*/
 @media only screen and (max-width: 767px){
-  
-    .template1_image{
-        height: 250px;
-    }  
+    .slider{
+        margin-top: 55px;
+    }
     
-    .img{
-        height: 250px;
-    }  
 }

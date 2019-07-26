@@ -13,6 +13,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Grid from '@material-ui/core/Grid';
+
+/*----------------------- For Zoom Transition  -----------------------*/
+import Zoom from '@material-ui/core/Zoom';
 
  const PostCreatorMaterialUi = (props) => { 
     const classes = useStyles();
@@ -22,7 +26,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
   //switch case for our post : image, video or document
   switch (props.data.type) {
   case 1 : 
-      console.log(props.action)
+      //console.log(props.action)
       if(props.action === 'posts'){
         template = (
                 <div className={classes.post_content_image}
@@ -42,7 +46,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
       }
       break;
   case 2 :  template = (
-          <div className="post_content_video">
+          <div className={classes.post_content_video}>
               <div className="embed-responsive embed-responsive-16by9">      
                   <iframe width="560" height="315" src={props.data.data}  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title={props.data.title}></iframe>
               </div>
@@ -65,6 +69,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
   }
 
   return (
+    <Zoom in>
+       <Grid item xs={12} md={4} sm={6} spacing={3}>
     <Card className={classes.card}>
       {/* Posted by image, title and subtitl */}
       <CardHeader
@@ -123,6 +129,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
         </CardContent>
       </Collapse>
     </Card>
+    </Grid>
+    </Zoom>
   );
 }
 //Style for Post Card 
@@ -153,8 +161,9 @@ const useStyles = makeStyles(theme => ({
     },
     post_pdf: {
       backgroundSize: 'cover !important',
-      width: 70,
-      height: 70,
+      width: 220,
+      height: 220,
+      margin:'auto',
     },
     post_content_image: {
       backgroundSize: 'cover !important',
@@ -162,6 +171,9 @@ const useStyles = makeStyles(theme => ({
       width: '100%',
       height: 220,
   },  
+  post_content_video:{
+    height: 220,
+  }
   }));
   
 export default PostCreatorMaterialUi;

@@ -840,7 +840,6 @@
 	}],
 
 	"Events": [{
-    "action":"events",
 		"id": 1,
 		"type": 1,
 		"title": "Title 1.",

@@ -51,6 +51,33 @@ library.add(faHome,faPlay,faImages,faVideo);
     >   git commit -m "first commit"
     >   git config --global user.email "prakash.raoinfotech@gmail.com"
     >   git config --global user.name "prakash karena"
+    >   install : source tree 
+
+11. Github : 
+    >   online : github account > settings > SSH and GPG keys > 
+    >   url > helps.github.com/articles/checking-for-existing-ssh-keys
+    >   open git base > 
+        >   ls -al ~/.ssh
+        >   generate new ssh key : https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+             >   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+        >   clip < ~/.ssh/id_rsa.pub
+        >   Add SSH key to github Account 
+        >   Add SSH Agent to github : 
+            >   eval $(ssh-agent -s) 
+            >   ssh-add ~/.ssh/id_rsa
+            >   ssh -T git@github.com
+
+
+        >Creating Repo in github : rao
+        >git remote add origin https://github.com/Prkarena/rao.git
+        >git push -u origin master
+
+12. Heroku : karenaprakash14@gmail.com  , karenaprakash@123
+>   install heroku cli : 64 bit 
+>   cmd :  heroku --help
+        :   heroku login 
+        :   heroku keys:add
+
 
 
 

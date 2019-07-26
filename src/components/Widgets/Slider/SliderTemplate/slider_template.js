@@ -8,20 +8,21 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+/*------------ css -------------------*/
+import './slider_template.css';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
  const SliderTemplate = (props) => {
-
-  const tutorialSteps = props.data ;
+  const data = props.data ;
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = props.end;
  
   function handleNext() {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -42,7 +43,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {tutorialSteps.map((step, index) => (
+        {data.map((step, index) => (
           <div key={step.id} className={classes.subroot}>
             {Math.abs(activeStep - index) <= 2 ? (
               <div
@@ -60,32 +61,32 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
-      variant="dots"
-      steps={6}
-      position="static"
-      activeStep={activeStep}
-      className={classes.root}
-      nextButton={
-        <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
-          Next
-          {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-        </Button>
-       }
-        backButton={
-            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
-            </Button>
-        }
+        variant="dots"
+        steps={props.end}
+        position="static"
+        activeStep={activeStep}
+        className={classes.root}
         />
+        <div className={classes.sliderButtonDiv}>
+          <Fab color="primary" size="small" onClick={handleBack}  disabled={activeStep === 0}  className={classes.fableft}>
+              <Icon>navigate_before</Icon>
+          </Fab>
+          <Fab color="primary" size="small" onClick={handleNext}  disabled={activeStep === maxSteps - 1} className={classes.fabright}>
+              {theme.direction === 'rtl' ?  <Icon>navigate_before</Icon> :   <Icon>navigate_next</Icon>  }
+          </Fab>
+        </div>
+          
     </div>
   );
 }
 
-
 const useStyles = makeStyles( theme => ({
     root: {
       flexGrow: 1,
+      justifyContent:'center',
+      '&$disabled': {
+        backgroundColor: 'red',
+      },
     },
     subroot: {
         width: '100%',
@@ -93,9 +94,31 @@ const useStyles = makeStyles( theme => ({
     img: {  
       height : 250,
       [theme.breakpoints.up('sm')]: {
-        height: 450,
+        height: 500,
+      },
+      fableft: {
+        
+      }, fabright: {
+        position:'relative',
+        margin: theme.spacing(1),
+        right:0,
+      },
+      disabled:{
+        backgroundColor:"red",
       },
     },
+    sliderButtonDiv : {
+      width:'100%',
+      display:'flex',
+      position: 'absolute',
+      top: 170,
+      alignItems:'center',
+      flexDirection:'row',
+      justifyContent:'space-between',
+     [theme.breakpoints.up('sm')]: {
+        top:260,
+    },
+  },
   }));
   
 export default SliderTemplate;

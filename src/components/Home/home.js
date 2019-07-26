@@ -14,11 +14,12 @@ const Home = () => {
           <Slider
             type = "template1"
             start = {0}
-            end = {5}
+            end = {6}
           />
           <Post
            start = {0}
-           end = {9}
+           end = {2}
+           type = "posts"
           />
         </div>
     )

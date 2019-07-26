@@ -6,8 +6,9 @@
 
 import React,{ Component } from 'react';
 import axios from 'axios';
-import SliderTemplate from './slider_template';
-
+import SliderTemplate from './SliderTemplate/slider_template';
+/*---------- css -------------*/
+import './slider.css';
 
 class Slider extends Component{
 /**
@@ -30,7 +31,11 @@ class Slider extends Component{
  }
 
     render() {
-        return   <SliderTemplate data = { this.state.news } type = "template1"/>  
+        return  (
+            <div className="slider">
+                <SliderTemplate data = { this.state.news } end = {this.props.end} type = "template1"/>  
+            </div>
+        )
     }    
 
 }

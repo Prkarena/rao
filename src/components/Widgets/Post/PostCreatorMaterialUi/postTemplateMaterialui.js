@@ -5,11 +5,11 @@
  * 
  */
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 /*----------------- Components ------------------- */
 
 import PostCreatorMaterialUi from './postcreatorMaterialui';
-import './PostCreatorMaterialUi.css';
 
 const PostTemplateMaterialui = (props) => {
     // template : for storing each post and shown in post div 
@@ -20,7 +20,9 @@ const PostTemplateMaterialui = (props) => {
     })
     return (
       <div className="post pt-2"> 
-               {template}
+       <Grid container spacing={3}>
+         {template}
+       </Grid>
       </div>
     )
 }

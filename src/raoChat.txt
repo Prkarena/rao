@@ -1200,3 +1200,14 @@ data tables : crud
 video component : 
 
 button https://material-ui.com/components/speed-dial
+
+
+
+==============Load more
+
+
+*******************infinite scroller 
+
+> npm install react-infinite-scroller --save
+
+> npm install react-infinite-scroll-component  --save
