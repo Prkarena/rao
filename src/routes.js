@@ -13,6 +13,7 @@
  import Products from './components/Products/product';
  import Notification from './components/Notification/notification';
  import AutoRotatingCarouselComponent from './components/Widgets/About/AutoRotatingCarousel';
+ import PostItem from './components/Widgets/PostItem/postitem';
 
  const Routes = () => {
     return (
@@ -20,7 +21,9 @@
             <Route path="/profile" exact component={Profile}/>
             <Route path="/notification" exact component={Notification}/>
             <Route path="/products" exact component={Products}/>
+            <Route path="/:events/event:id" exact component={PostItem}/>
             <Route path="/events" exact component={Event}/>
+            <Route path="/post:id" exact component={PostItem}/>
             <Route path="/favorite" exact component={Favorite}/>
             <Route path="/videos" exact component={Videos}/>
             <Route path="/aboutcarousel" exact component={AutoRotatingCarouselComponent}/>

@@ -6,7 +6,7 @@
 
 import React,{ Component } from 'react';
 import axios from 'axios';
-import PostTemplateMaterialui from '../Post/PostCreatorMaterialUi/postTemplateMaterialui';
+import PostTemplateMaterialui from '../Widgets/PostCreatorMaterialUi/postTemplateMaterialui';
 import './post.css'
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -26,13 +26,14 @@ class Post extends Component{
  }
 
  componentWillMount(props){
+   
     this.request(this.state.start,this.state.end);
  }
 
  request = (start,end) => {
   
-     if(this.props.type === "posts")
-    {    console.log(this.props.type)
+     if(this.props.type === "post")
+    {  
         axios.get(`http://localhost:3001/Posts?_start=${start}&_end=${end}`)
         .then ( response => {
             //console.log(response.data);
@@ -42,8 +43,7 @@ class Post extends Component{
                end
            })
         })
-    }else if(this.props.type === "events"){
-        console.log(this.props.type)
+    }else if(this.props.type === "event"){
         axios.get(`http://localhost:3001/Events?_start=${start}&_end=${end}`)
         .then ( response => {
             //start and end going to change as per request start and
@@ -60,9 +60,7 @@ class Post extends Component{
      let end = this.state.end + this.state.amount;
      this.request(this.state.end,end);
  }
-    render() {
-       // console.log(this.state.posts);
-     
+    render(props) {
         return (
             <InfiniteScroll
                 dataLength={this.state.posts.length}

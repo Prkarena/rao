@@ -3,7 +3,7 @@
  */
 
 import React,{ Component } from 'react';
-import Post from '../Widgets/Post/post';
+import Post from '../Post/post';
 
 /*------------css-------------*/
 import './event.css';
@@ -17,7 +17,7 @@ class Event extends Component{
                  <Post
                   start = {0}
                   end = {4}
-                  type = "events"
+                  type = "event"
                   />
             </div>
         )

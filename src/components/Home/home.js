@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import Slider from '../Widgets/Slider/slider';
-import Post from '../Widgets/Post/post';
+import Post from '../Post/post';
 //css
 import './home.css';
 
@@ -18,8 +18,8 @@ const Home = () => {
           />
           <Post
            start = {0}
-           end = {2}
-           type = "posts"
+           end = {3}
+           type = "post"
           />
         </div>
     )

@@ -137,16 +137,22 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
+    transition: 'width 1s',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.white, 0.45),
+      width: '250px',
     },
     marginLeft: 0,
     width: '150px',
     height: '35px',
     marginTop:'5px',
     [theme.breakpoints.up('sm')]: {
-      width: '200px',
       marginLeft: theme.spacing(1),
+      width: '200px',
+      '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.45),
+        width: '300px',
+      },
     },
   },
   searchIcon: {

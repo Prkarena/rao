@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,23 +10,23 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
-
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 /*----------------------- For Zoom Transition  -----------------------*/
 import Zoom from '@material-ui/core/Zoom';
 
  const PostCreatorMaterialUi = (props) => { 
+    let postlink = "";
+    postlink = `post${props.data.id}`;
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
+   
   let template = null;
   //switch case for our post : image, video or document
   switch (props.data.type) {
   case 1 : 
-      //console.log(props.action)
-      if(props.action === 'posts'){
+      if(props.action === 'post'){
         template = (
                 <div className={classes.post_content_image}
                     style ={{
@@ -35,7 +34,8 @@ import Zoom from '@material-ui/core/Zoom';
                     }}>
                 </div>
           )    // case 1 means image post
-      }else if(props.action === 'events'){
+      }else if(props.action === 'event'){
+        postlink = `events/event${props.data.id}`;
           template = (
                   <div className={classes.post_content_image}
                       style ={{
@@ -63,14 +63,10 @@ import Zoom from '@material-ui/core/Zoom';
       break;
   default : return;
   }
-  // it hendle expand button    
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  }
 
   return (
-    <Zoom in>
-       <Grid item xs={12} md={4} sm={6} spacing={3}>
+    <Zoom in timeout={1000}>
+       <Grid item xs={12} md={4} sm={6}>
     <Card className={classes.card}>
       {/* Posted by image, title and subtitl */}
       <CardHeader
@@ -93,25 +89,29 @@ import Zoom from '@material-ui/core/Zoom';
              {props.data.description} 
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing className={classes.post_footer}>
         <IconButton aria-label="Add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="Share">
           <ShareIcon />
         </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
+      {/* Post Item */}  
+      
+         <div className={classes.readmore}>
+           <Link 
+            to={postlink}
+            >
+              <Button variant="contained" color="primary">
+                  Read More
+              </Button>
+            </Link>
+
+         </div>
+       
+
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse  timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
@@ -173,7 +173,10 @@ const useStyles = makeStyles(theme => ({
   },  
   post_content_video:{
     height: 220,
-  }
+  },readmore:{
+      width:'100%',
+      textAlign:'right',
+  },
   }));
   
 export default PostCreatorMaterialUi;
