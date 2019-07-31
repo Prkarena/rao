@@ -14,10 +14,22 @@
  import Notification from './components/Notification/notification';
  import AutoRotatingCarouselComponent from './components/Widgets/About/AutoRotatingCarousel';
  import PostItem from './components/Widgets/PostItem/postitem';
+ import Login from './components/Account/Login/login';
+ import SignUp from './components/Account/SignUp/signup';
+ import Dashbord from './components/Dashbord/dashbord';
+ import ForgotPassword from './components/Account/ForgotPassword/forgotpassword';
+
+
+
+
 
  const Routes = () => {
     return (
         <Switch>
+            <Route path="/login" exact component={Login}/>
+            <Route path="/forgotpassword" exact component={ForgotPassword}/>
+            <Route path="/dashbord" exact component={Dashbord}/>
+            <Route path="/signup" exact component={SignUp}/>
             <Route path="/profile" exact component={Profile}/>
             <Route path="/notification" exact component={Notification}/>
             <Route path="/products" exact component={Products}/>

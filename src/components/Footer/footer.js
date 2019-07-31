@@ -23,6 +23,7 @@ function handleChange(event, newValue) {
 /** 
  * BottomNavigation Items 
 */
+
 const linkItems = [
   {
       type : 'option',

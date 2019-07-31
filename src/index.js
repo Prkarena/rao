@@ -1,6 +1,6 @@
+
 /**
  * Index.js : Main Component 
- * Loader
  * BrowserRouter : Routes 
  * Header and Footer for all routes 
  */
@@ -14,26 +14,8 @@ import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
 /********************* Css ************************/
 import './css/index.css';
-/* BootStrap */
-import './css/bootstrap.min.css';
-
-/**
- * 
- * Icons 
- * 
- */
-
-
-import {faHome,faPlay,faImages,faVideo,faUser,faShoppingCart,faSearch,faBell,faHeart,faComment,faShare}  from "@fortawesome/free-solid-svg-icons";
-
-/****** Library for All types of icons *****/
-import { library } from '@fortawesome/fontawesome-svg-core';
-library.add(faHome,faPlay,faImages,faVideo,faUser,faShoppingCart,faSearch,faBell,faHeart,faComment,faShare);
-
 
 const App = () => {
-
-/********************* Loader Start ************************/
 
 //loader time out function 
 const loaderTimeOut = () => { 
@@ -43,24 +25,18 @@ const loaderTimeOut = () => {
         let loader = document.getElementsByClassName("loader-bg")[0];
         loader.style.display = "none";
     },
-    3000);
+    1000);
 }
 
 loaderTimeOut();
-
-
-/********************* Loader End ************************/
-
 
     return(
         <BrowserRouter>
             <Loader/>
             <div className = "mainContainer">
                 <Header/>   
-                <Routes/>
-                <div className="footer">
-                    <Footer />
-                </div>
+                    <Routes/>
+                <Footer />
             </div>
         </BrowserRouter>
     )
